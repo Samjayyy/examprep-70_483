@@ -1,0 +1,19 @@
+{
+	"People": {
+		"Person": [
+		{
+			"firstName": "John",
+			"lastName": "Doe",
+			"ContactDetails": { "EmailAddress": "john@unknown.com" }
+		},
+		{
+			"firstName": "Jane",
+			"lastName": "Doe",
+			"ContactDetails": {
+			"EmailAddress": "jane@unknown.com",
+			"PhoneNumber": "001122334455"
+			}
+		}
+		]
+	}
+}

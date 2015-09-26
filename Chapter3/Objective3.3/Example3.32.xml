@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <codeBase version="1.0.0.0"
+        href= "http://www.mydomain.com/ReferencedAssembly.dll"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

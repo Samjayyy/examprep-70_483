@@ -1,0 +1,5 @@
+public ActionResult Index()
+{
+	ViewBag.MyDynamicValue = “This property is not statically typed”;
+	return View();
+}
