@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Example2._56
 {
@@ -7,6 +9,37 @@ namespace Example2._56
     {
         static void Main(string[] args)
         {
+            var persons = new Person[]
+            {
+                new Person("Samwise","The brave"),
+                new Person("Frodo","Baggins"),
+            };
+            var people = new People(persons);
+
+            Console.WriteLine("Using the enumerator");
+            using (var enumerator = people.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    Console.WriteLine(enumerator.Current);
+                }
+            }
+
+            Console.WriteLine("---------");
+            Console.WriteLine("Using in foreach loop");
+            foreach(var person in people)
+            {
+                Console.WriteLine(person);
+            }
+
+            Console.WriteLine("---------");
+            Console.WriteLine("Directlt using LINQ statements");
+            var foundName = people.Select(p => p.FirstName)
+                    .FirstOrDefault(name => name.Contains("Sam"));
+            Console.WriteLine($"Name containing Sam: {foundName}");
+
+
+            Console.ReadKey();
         }
     }
 

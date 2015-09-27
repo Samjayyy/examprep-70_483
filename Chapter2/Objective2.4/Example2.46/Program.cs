@@ -8,10 +8,12 @@ namespace Example2._46
     {
         static void Main(string[] args)
         {
-            OrderRepository repository = new OrderRepository(new List<Order> { new Order(1), new Order(2) });
-            Order secondOrder = repository.FindById(2);
-            Console.WriteLine(string.Format("secondOrder.Id is {0}", secondOrder.Id));
-            IEnumerable<Order> filteredOrders = repository.FilterOrdersOnAmount(42);
+            var repository = new OrderRepository(Enumerable.Range(1,10).Select(i => new Order(i)));
+            var secondOrder = repository.FindById(2);
+            Console.WriteLine($"secondOrder.Id is {secondOrder.Id}");
+
+            IEnumerable<Order> filteredOrders = repository.FilterOnOddIds();
+            Console.WriteLine($"Filtered Odd: {string.Join(", ",filteredOrders)}");
 
             Console.Write("Press a key to exit");
             Console.ReadKey();
@@ -47,6 +49,11 @@ namespace Example2._46
         }
 
         public int Id { get; private set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}";
+        }
         // Other implementation details omitted
         // ...
     }
@@ -56,12 +63,10 @@ namespace Example2._46
         public OrderRepository(IEnumerable<Order> orders)
             : base(orders) { }
 
-        public IEnumerable<Order> FilterOrdersOnAmount(decimal amount)
+        public IEnumerable<Order> FilterOnOddIds()
         {
-            List<Order> result = null;
-            // Some filtering code
-
-            return result;
+            return elements.Where(o => (o.Id & 1) == 1); // Filtering out where LSB is 1
         }
+
     }
 }

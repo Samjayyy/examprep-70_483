@@ -11,7 +11,9 @@ namespace Example2._48
             b = new Derived();
             b.Execute();
 
-            Console.Write("Press a key to exit");
+            Derived d = new Derived();
+            d.Execute();
+
             Console.ReadKey();
         }
     }

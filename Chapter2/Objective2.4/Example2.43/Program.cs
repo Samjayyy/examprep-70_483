@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Example2._43
 {
@@ -6,19 +7,27 @@ namespace Example2._43
     {
         static void Main(string[] args)
         {
+            IRepository<string> repo = new StringRepository();
+            Console.WriteLine($"All strings: {string.Join(", ", repo.All())}");
+
+            //repo = new DoubleReposiotry(); // not possible
+            var repo2 = new DoubleReposiotry();
+            Console.WriteLine($"All doubles: {string.Join(", ", repo2.All())}");
+
+            Console.ReadKey();
         }
     }
 
     interface IRepository<T>
     {
-        T FIndById(int id);
+        T FindById(int id);
 
         IEnumerable<T> All();
     }
 
     class StringRepository : IRepository<string>
     {
-        public string FIndById(int id)
+        public string FindById(int id)
         {
             return "42";
         }
@@ -31,7 +40,7 @@ namespace Example2._43
 
     class DoubleReposiotry : IRepository<double>
     {
-        public double FIndById(int id)
+        public double FindById(int id)
         {
             return 42d;
         }

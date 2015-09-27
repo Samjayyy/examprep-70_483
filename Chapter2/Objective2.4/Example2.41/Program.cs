@@ -6,6 +6,13 @@ namespace Example2._41
     {
         static void Main(string[] args)
         {
+            IExample example = new ExampleImplementation();
+
+            example.Value = 41;
+            Console.WriteLine($"Value: {example.Value}");
+            Console.WriteLine($"GetResult: {example.GetResult()}");
+            Console.WriteLine($"indexer: {example["whatever"]}");
+            Console.ReadKey();
         }
     }
 

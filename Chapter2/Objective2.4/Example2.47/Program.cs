@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Example2._47
 {
@@ -10,23 +6,31 @@ namespace Example2._47
     {
         static void Main(string[] args)
         {
+            Base example = new Derived();
+            example.Execute();
+
+            Console.ReadKey();
         }
     }
 
     class Base
     {
-        protected virtual void Execute() { }
+        public virtual void Execute() {
+            Log("executing base class");
+        }
+
+        protected void Log(string message) {
+            Console.WriteLine(message);
+        }
     }
 
     class Derived : Base
     {
-        protected override void Execute()
+        public override void Execute()
         {
-            this.Log("Before executing");
+            Log("Before executing");
             base.Execute();
-            this.Log("After executing");
+            Log("After executing");
         }
-
-        private void Log(string message) { /* Some logging code */ }
     }
 }

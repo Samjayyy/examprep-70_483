@@ -9,31 +9,25 @@ namespace Example2._54
         {
             List<Order> orders = new List<Order>
             {
-            new Order { Created = new DateTime(2012, 12, 1 )},
-            new Order { Created = new DateTime(2012, 1, 6 )},
-            new Order { Created = new DateTime(2012, 7, 8 )},
-            new Order { Created = new DateTime(2012, 2, 20 )},
+            new Order { Created = new DateTime(2015, 4, 1 )},
+            new Order { Created = new DateTime(2015, 1, 10 )},
+            new Order { Created = new DateTime(2015, 2, 20 )},
+            new Order { Created = new DateTime(2015, 2, 5 )},
             };
             Console.WriteLine("Before sort");
-            PrintOrders(orders);
+            orders.ForEach(Console.WriteLine);
+
+            Console.WriteLine("-------------");
             orders.Sort();
+
             Console.WriteLine("After sort");
-            PrintOrders(orders);
+            orders.ForEach(Console.WriteLine);
 
-            Console.Write("Press a key to exit");
             Console.ReadKey();
-        }
-
-        private static void PrintOrders(List<Order> orders)
-        {
-            foreach (var order in orders)
-            {
-                Console.WriteLine(order.Created.ToString());
-            }
         }
     }
 
-    class Order : IComparable
+    class Order : IComparable, IComparable<Order>
     {
         public DateTime Created { get; set; }
 
@@ -49,8 +43,16 @@ namespace Example2._54
             {
                 throw new ArgumentException("Object is not an Order");
             }
-
-            return this.Created.CompareTo(other.Created);
+            return CompareTo(other);
         }
+
+        public int CompareTo(Order other)
+        {
+            return Created.CompareTo(other.Created);
+        }
+
+
+
+        public override string ToString() => Created.ToShortDateString();
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Example2._44
 {
     class Program
@@ -6,8 +8,18 @@ namespace Example2._44
         static void Main(string[] args)
         {
             IAnimal animal = new Dog();
+
+            MoveAnimal(animal);
+
             //animal.Bark(); This will thrown an compile error
             (animal as Dog).Bark(); // Is allowed
+
+            Console.ReadKey();
+        }
+
+        static void MoveAnimal(IAnimal animal)
+        {
+            animal.Move();
         }
     }
 
@@ -18,9 +30,13 @@ namespace Example2._44
 
     class Dog : IAnimal
     {
-        public void Move() { }
+        public void Move() {
+            Console.WriteLine("I'm moving");
+        }
 
-        public void Bark() { }
+        public void Bark() {
+            Console.WriteLine("Bark, Bark..");
+        }
     }
 
 }
