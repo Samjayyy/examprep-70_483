@@ -7,7 +7,7 @@ namespace Example1._58
         static void Main(string[] args)
         {
             int? x = null;
-            int y = x ?? -1;
+            var y = x ?? -1;
 
             Console.WriteLine(y);
 
@@ -16,7 +16,7 @@ namespace Example1._58
             Console.WriteLine("Example 1.59");
 
             int? z = null;
-            int y2 = x ??
+            var y2 = x ??
                      z ??
                      -1;
 

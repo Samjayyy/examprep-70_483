@@ -15,14 +15,14 @@ namespace Example1._72
                 new Person() { FirstName = "John", LastName = "Doe"},
                 new Person() { FirstName = "Jane", LastName = "Doe"},
             };
-            foreach (Person p in people)
+            foreach (var p in people)
             {
                 p.LastName = "Changed"; // This is allowed
                 // p = new Person(); // This gives a compile error
             }
 
             // Compiler generated code
-            List<Person>.Enumerator e = people.GetEnumerator();
+            var e = people.GetEnumerator();
             try
             {
                 Person v;
@@ -33,13 +33,13 @@ namespace Example1._72
             }
             finally
             {
-                System.IDisposable d = e as System.IDisposable;
+                var d = e as System.IDisposable;
                 if (d != null) d.Dispose();
             }
         }
     }
 
-    private class Person
+    internal class Person
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -8,7 +8,7 @@ namespace Example1._93
         {
             try
             {
-                int i = ReadAndParse();
+                var i = ReadAndParse();
                 Console.WriteLine("Parsed: {0", i);
             }
             catch (FormatException e)
@@ -28,8 +28,8 @@ namespace Example1._93
         private static int ReadAndParse()
         {
             Console.Write("Enter a word: ");
-            string s = Console.ReadLine();
-            int i = int.Parse(s);
+            var s = Console.ReadLine();
+            var i = int.Parse(s);
             return i;
         }
     }

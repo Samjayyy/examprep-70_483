@@ -34,7 +34,7 @@ namespace Example1._84
 
         public static void CreateAndRaise()
         {
-            Pub p = new Pub();
+            var p = new Pub();
             p.OnChange += (sender, e) =>
                 {
                     Console.WriteLine("Event raised: {0}", e.Value);

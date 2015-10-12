@@ -6,7 +6,7 @@ namespace Example1._26
     {
         static void Main(string[] args)
         {
-            int i = 1;
+            var i = 1;
             switch (i)
             {
                 case 1:

@@ -11,7 +11,7 @@ namespace Example1._97
             try
             {
                 Console.Write("Enter an string to cause an exception: ");
-                string s = Console.ReadLine();
+                var s = Console.ReadLine();
                 int.Parse(s);
             }
             catch (FormatException ex)

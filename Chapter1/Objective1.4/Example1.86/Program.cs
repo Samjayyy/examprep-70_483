@@ -24,7 +24,7 @@ namespace Example1._86
 
         public static void CreateAndRaise()
         {
-            Pub p = new Pub();
+            var p = new Pub();
             p.OnChange += (sender, e) =>
                 {
                     Console.WriteLine("Subscrober 1 called");
