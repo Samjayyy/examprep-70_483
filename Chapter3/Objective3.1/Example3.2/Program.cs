@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace Example3_2
 {
@@ -8,6 +11,7 @@ namespace Example3_2
     {
         static void Main(string[] args)
         {
+            Database.SetInitializer(new DropCreateDatabaseAlways<ShopContext>());
             using (ShopContext ctx = new ShopContext())
             {
                 Address a = new Address()
@@ -20,26 +24,35 @@ namespace Example3_2
 
                 Customer c = new Customer()
                 {
-                    FirstName = "John",
+                    FirstName = "abcdefghijklmnopqrstuvwxyz",
                     LastName = "Doe",
                     BillingAddress = a,
                     ShippingAddress = a
                 };
 
                 ctx.Customers.Add(c);
-                ctx.SaveChanges();
+                if (ctx.GetValidationErrors().Any())
+                {
+                    ctx.GetValidationErrors().SelectMany(e => e.ValidationErrors).Select(e => e.ErrorMessage).ToList().ForEach(Console.WriteLine);
+                }
+                else
+                {
+                    ctx.SaveChanges();
+                    Console.WriteLine($"Customer saved: {c}");
+                }
             }
+
+            Console.ReadKey();
         }
     }
 
     public class ShopContext : DbContext
     {
         public IDbSet<Customer> Customers { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Make sure the database knows how to handle the duplicate address property
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 
@@ -47,7 +60,7 @@ namespace Example3_2
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required, StringLength(20)]
         public string FirstName { get; set; }
 
         [Required]
