@@ -7,14 +7,27 @@ namespace Example3._6
     {
         static void Main(string[] args)
         {
-            CultureInfo english = new CultureInfo("En");
-            CultureInfo dutch = new CultureInfo("Nl");
+            var english = new CultureInfo("En");
+            var dutch = new CultureInfo("Nl");
 
             string value = "€19,95";
-            decimal d = decimal.Parse(value, NumberStyles.Currency, dutch);
-            Console.WriteLine(d.ToString(english));
+            decimal result;
+            if(decimal.TryParse(value, NumberStyles.Currency, dutch, out result)){
+                Console.WriteLine($"parse in NL, print in NL {result.ToString(dutch)}");
+                Console.WriteLine($"parse in NL, print in EN {result.ToString(english)}");
+            }
+            Console.WriteLine("-----------------");
+            if (decimal.TryParse(value, NumberStyles.Currency, english, out result))
+            {
+                Console.WriteLine($"parse in EN, print in EN {result.ToString(english)}");
+                Console.WriteLine($"parse in EN, print in NL {result.ToString(dutch)}");
+            }
+            else
+            {
+                Console.WriteLine("You shall not parse! euros in english"); // gandalf
+            }
+            Console.WriteLine("-----------------");
 
-            Console.Write("Press a key to exit");
             Console.ReadKey();
         }
     }

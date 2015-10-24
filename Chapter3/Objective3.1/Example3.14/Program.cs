@@ -11,8 +11,6 @@ namespace Example3._14
             // This will validate successfully. 
             // Try to remove the <FirstName>John</FirstName> row in Person.xml and restart the application.
             ValidateXML();
-
-            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
 
@@ -28,6 +26,8 @@ namespace Example3._14
             ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
             Console.WriteLine("Validating Person.xml ...");
             document.Validate(eventHandler);
+
+            Console.WriteLine($"First child of root: {document.DocumentElement.FirstChild.Name} => {document.DocumentElement.FirstChild.InnerText}");
         }
 
         private static void ValidationEventHandler(object sender, ValidationEventArgs e)

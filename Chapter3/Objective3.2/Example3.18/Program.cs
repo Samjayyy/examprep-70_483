@@ -13,11 +13,10 @@ namespace Example3._18
 
             Console.WriteLine("publicKeyXML:");
             Console.WriteLine(publicKeyXML);
-            Console.WriteLine();
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("privateKeyXML:");
             Console.WriteLine(privateKeyXML);
 
-            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
     }

@@ -6,14 +6,14 @@ namespace Example3._7
     {
         static void Main(string[] args)
         {
-            int i = Convert.ToInt32(null);
-            Console.WriteLine(i);
-
+            Console.WriteLine($"Convert null to Int32: {Convert.ToInt32(null)}");
             double d = 23.15;
-            int i2 = Convert.ToInt32(d);
-            Console.WriteLine(i2);
+            Console.WriteLine($"Convert '{d}' to Int32: {Convert.ToInt32(d)}");
+            d = 2147483647.5D;
+            Console.WriteLine($"Convert '{d}' to Int32: {Convert.ToInt32(d)}");
+            d = -2147483648.5D;
+            Console.WriteLine($"Convert '{d}' to Int32: {Convert.ToInt32(d)}");
 
-            Console.Write("Press a key to exit");
             Console.ReadKey();
         }
     }

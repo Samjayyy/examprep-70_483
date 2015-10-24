@@ -9,21 +9,19 @@ namespace Example3._17
         static void Main(string[] args)
         {
             EncryptDecryptSomeText();
-
-            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
 
         public static void EncryptDecryptSomeText()
         {
             string original = "My secret data!";
-            Console.WriteLine(string.Format("Encripting: {0}", original));
-            using (SymmetricAlgorithm symmetricAnglorith = new AesManaged())
+            Console.WriteLine($"Encrypting: {original}");
+            using (SymmetricAlgorithm symmetricAnglorithm = new AesManaged())
             {
-                byte[] encrypted = Encrypt(symmetricAnglorith, original);
-                Console.WriteLine(string.Format("Encrypted result: {0}", encrypted.ToSentence()));
-                string dencrypted = Decrypt(symmetricAnglorith, encrypted);
-                Console.WriteLine(string.Format("Dencrypted result: {0}", dencrypted));
+                byte[] encrypted = Encrypt(symmetricAnglorithm, original);
+                Console.WriteLine($"Encrypted result: {encrypted.ToSentence()}");
+                string decrypted = Decrypt(symmetricAnglorithm, encrypted);
+                Console.WriteLine($"Decrypted result: {decrypted}");
             }
         }
 

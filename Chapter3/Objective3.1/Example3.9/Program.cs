@@ -7,18 +7,37 @@ namespace Example3._9
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Using ValidateZipCode");
-            Console.WriteLine("1234AB is {0}", ValidateZipCode("1234AB"));
-            Console.WriteLine("0 is {0}", ValidateZipCode("0"));
-            Console.WriteLine("Using ValidateZipCodeRegEx");
-            Console.WriteLine("1234AB is {0}", ValidateZipCodeRegEx("1234AB"));
-            Console.WriteLine("0 is {0}", ValidateZipCodeRegEx("0"));
+            Console.WriteLine("Validate a zipcode with a method");
+            Validate("1234AB", WithMethod);
+            Validate("0", WithMethod);
+            Validate("1234 AB", WithMethod);
+            Validate("123AB1", WithMethod);
+            Validate(" 123AB", WithMethod);
+            Validate("1234 AB", WithMethod);
+            Console.WriteLine("-----------------");
+            Console.WriteLine("Validate a zipcode with a regex");
+            Validate("1234AB", WithRegex);
+            Validate("0", WithRegex);
+            Validate("1234 AB", WithRegex);
+            Validate("123AB1", WithRegex);
+            Validate(" 123AB", WithRegex);
+            Validate("1234 AB", WithRegex);
 
-            Console.Write("Press a key to exit");
+            Console.ReadKey();
+
+            BestPractices.ExampleBacktracking();
+            Console.ReadKey();
+
+            BestPractices.CompileVsInterpreted();
             Console.ReadKey();
         }
 
-        static bool ValidateZipCode(string zipCode)
+        static void Validate(string zipCode, Func<string,bool> check)
+        {
+            Console.WriteLine($"{zipCode} => {(check(zipCode) ? "valid" : "invalid")}");
+        }
+
+        static bool WithMethod(string zipCode)
         { 
             // Valid zopcodes: 1234AB | 1234 AB | 1001 AB
 
@@ -37,7 +56,7 @@ namespace Example3._9
             return true;
         }
 
-        static bool ValidateZipCodeRegEx(string zipCode)
+        static bool WithRegex(string zipCode)
         {
             Match match = Regex.Match(zipCode, @"^[1-9][0-9]{3}\s?[a-zA-Z]{2}$", RegexOptions.IgnoreCase);
 

@@ -14,7 +14,7 @@ namespace Example3._19
 
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
             byte[] dataToEncrypt = ByteConverter.GetBytes("My secret data!");
-            Console.WriteLine("Encrypting: {0}", ByteConverter.GetString(dataToEncrypt));
+            Console.WriteLine($"Encrypting: {ByteConverter.GetString(dataToEncrypt)}");
 
             byte[] encryptedData;
             using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
@@ -23,7 +23,7 @@ namespace Example3._19
                 encryptedData = RSA.Encrypt(dataToEncrypt, false);
             }
 
-            Console.WriteLine("Encrypted data: {0}", ByteConverter.GetString(encryptedData));
+            Console.WriteLine($"Encrypted data: {ByteConverter.GetString(encryptedData)}");
 
             byte[] decryptedData;
             using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
@@ -33,9 +33,8 @@ namespace Example3._19
             }
 
             string decryptedString = ByteConverter.GetString(decryptedData);
-            Console.WriteLine("Decrypted data: {0}", decryptedString);
+            Console.WriteLine($"Decrypted data: {decryptedString}");
 
-            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
     }

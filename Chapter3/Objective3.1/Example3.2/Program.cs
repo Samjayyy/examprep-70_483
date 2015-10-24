@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
 namespace Example3_2
@@ -52,7 +51,9 @@ namespace Example3_2
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            // Make sure the database knows how to handle the duplicate address property
+            modelBuilder.Entity<Customer>().HasRequired(bm => bm.BillingAddress)
+                .WithMany().WillCascadeOnDelete(false);
         }
     }
 
