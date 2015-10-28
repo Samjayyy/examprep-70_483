@@ -8,13 +8,25 @@ namespace Example3._25
     {
         static void Main(string[] args)
         {
-            
+            DeclarativeCAS();
+            Console.ReadKey();
+            Console.WriteLine("---------------");
+            ImperativeCAS();
+            Console.ReadKey();
         }
 
-        [FileIOPermissionAttribute(SecurityAction.Demand, AllLocalFiles = FileIOPermissionAccess.Read)]
+        public static void ReadFile()
+        {
+            string text = System.IO.File.ReadAllText(@"TextFile.txt");
+            Console.WriteLine(text);
+            var objW = System.IO.File.OpenText(@"TextFile.txt");
+        }
+
+        [FileIOPermission(SecurityAction.Demand, AllLocalFiles = FileIOPermissionAccess.Read)]
         public static void DeclarativeCAS()
         {
             // Method body
+            ReadFile();
         }
 
         private static void ImperativeCAS()
@@ -24,6 +36,7 @@ namespace Example3._25
             try
             {
                 f.Demand();
+                ReadFile();
             }
             catch (SecurityException e)
             {

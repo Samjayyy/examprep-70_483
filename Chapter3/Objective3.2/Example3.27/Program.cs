@@ -28,7 +28,6 @@ namespace Example3._27
                 ConvertToUnsecureString(ss);
             }
 
-            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
 
