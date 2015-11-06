@@ -21,7 +21,7 @@ namespace Example1._76
             d += MethodTwo;
 
             d();
-            int invocationCount = d.GetInvocationList().Count();
+            var invocationCount = d.GetInvocationList().Count();
             Console.WriteLine("d invocation count is: {0}", invocationCount);
         }
 

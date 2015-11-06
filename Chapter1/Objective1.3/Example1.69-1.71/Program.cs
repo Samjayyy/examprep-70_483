@@ -8,7 +8,7 @@ namespace Example1._69
         {
             int[] values = { 1, 2, 3, 4, 5, 6 };
             {
-                int index = 0;
+                var index = 0;
                 while (index < values.Length)
                 {
                     Console.Write(values[index]);
@@ -26,7 +26,7 @@ namespace Example1._69
 
             Console.WriteLine();
 
-            foreach (int i in values)
+            foreach (var i in values)
             {
                 Console.Write(i);
             }

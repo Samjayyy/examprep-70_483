@@ -14,7 +14,7 @@ namespace Example1._80
                     Console.WriteLine("Adding numbers {0} + {1}", x, y);
                     return x + y;
                 };
-            int result = calc(3, 4);
+            var result = calc(3, 4);
 
             Console.WriteLine(result);
 

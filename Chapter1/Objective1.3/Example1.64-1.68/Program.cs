@@ -7,7 +7,7 @@ namespace Example1._64
         static void Main(string[] args)
         {
             int[] values = { 1, 2, 3, 4, 5, 6 };
-            for (int index = 0; index < values.Length; index++)
+            for (var index = 0; index < values.Length; index++)
             {
                 Console.Write(values[index]);
             }
@@ -24,14 +24,14 @@ namespace Example1._64
 
             Console.WriteLine();
 
-            for (int index = 0; index < values.Length; index += 2)
+            for (var index = 0; index < values.Length; index += 2)
             {
                 Console.Write(values[index]);
             }
 
             Console.WriteLine();
 
-            for (int index = 0; index < values.Length; index++)
+            for (var index = 0; index < values.Length; index++)
             {
                 if (values[index] == 4) break;
                 Console.Write(values[index]);
@@ -39,7 +39,7 @@ namespace Example1._64
 
             Console.WriteLine();
 
-            for (int index = 0; index < values.Length; index++)
+            for (var index = 0; index < values.Length; index++)
             {
                 if (values[index] == 4) continue;
                 Console.Write(values[index]);

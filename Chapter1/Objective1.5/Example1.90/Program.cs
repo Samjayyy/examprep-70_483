@@ -12,7 +12,7 @@ namespace Example1._90
 
             try
             {
-                int i = int.Parse(s);
+                var i = int.Parse(s);
             }
             catch (ArgumentNullException)
             {

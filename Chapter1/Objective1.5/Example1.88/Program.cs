@@ -5,8 +5,8 @@ namespace Example1._88
     {
         static void Main(string[] args)
         {
-            string s = "NaN";
-            int i = int.Parse(s);
+            var s = "NaN";
+            var i = int.Parse(s);
             // Displays
             // Unhandled Exception: System.FormatException:
         }

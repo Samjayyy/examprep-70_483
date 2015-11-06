@@ -6,10 +6,10 @@ namespace Example1._89
     {
         static void Main(string[] args)
         {
-            string s = "NaN";
+            var s = "NaN";
             try
             {
-                int i = int.Parse(s);
+                var i = int.Parse(s);
             }
             catch (FormatException)
             {

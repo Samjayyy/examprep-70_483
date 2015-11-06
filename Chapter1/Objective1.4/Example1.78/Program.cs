@@ -4,7 +4,7 @@ namespace Example1._78
 {
     class Program
     {
-        private static delegate void ContravarianceDel(StreamWriter tw);
+        private delegate void ContravarianceDel(StreamWriter tw);
 
         static void Main(string[] args)
         {

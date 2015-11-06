@@ -6,9 +6,9 @@ namespace Example1._46
     {
         static void Main(string[] args)
         {
-            int x = 42;
-            int y = 1;
-            int z = 42;
+            var x = 42;
+            var y = 1;
+            var z = 42;
 
             Console.WriteLine(x == y);
             Console.WriteLine(x == z);
@@ -17,10 +17,10 @@ namespace Example1._46
             Console.WriteLine();
             Console.WriteLine("Example 1.47");
 
-            bool x1 = true;
-            bool y1 = false;
+            var x1 = true;
+            var y1 = false;
 
-            bool result = x1 || y1;
+            var result = x1 || y1;
 
             Console.WriteLine(result);
 
@@ -33,8 +33,8 @@ namespace Example1._46
             // Example 1.49
             Console.WriteLine();
             Console.WriteLine("Example 1.49");
-            int value = 42;
-            bool result2 = (0 < value) && (value < 100);
+            var value = 42;
+            var result2 = (0 < value) && (value < 100);
             Console.WriteLine(result2);
 
             // Example 1.50
@@ -46,8 +46,8 @@ namespace Example1._46
             // Example 1.51
             Console.WriteLine();
             Console.WriteLine("Example 1.51");
-            bool a = true;
-            bool b = false;
+            var a = true;
+            var b = false;
 
             Console.WriteLine(a ^ a);
             Console.WriteLine(a ^ b);
@@ -59,7 +59,7 @@ namespace Example1._46
 
         public static void OrShortCircuit()
         {
-            bool result = GetX() || GetY();
+            var result = GetX() || GetY();
         }
 
         private static bool GetX()
@@ -78,7 +78,7 @@ namespace Example1._46
 
         public static void Process(string input)
         {
-            bool result = (input != null) && (input.StartsWith("v")); // Does not throw excpetion because of short-circuiting
+            var result = (input != null) && (input.StartsWith("v")); // Does not throw excpetion because of short-circuiting
             // Do something with the result
         }
     }

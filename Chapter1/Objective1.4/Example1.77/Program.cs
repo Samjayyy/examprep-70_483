@@ -4,7 +4,7 @@ namespace Example1._77
 {
     class Program
     {
-        private static delegate TextWriter ConvarianceDel();
+        private delegate TextWriter ConvarianceDel();
 
         static void Main(string[] args)
         {

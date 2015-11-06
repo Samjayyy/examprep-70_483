@@ -6,7 +6,7 @@ namespace Example1._83
     {
         static void Main(string[] args)
         {
-            Pub p = new Pub();
+            var p = new Pub();
             p.OnChange += OnChange;
             p.Raise();
 

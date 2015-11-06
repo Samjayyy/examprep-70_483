@@ -27,7 +27,7 @@ namespace Example1._82
 
         public static void CreateAndRaise()
         {
-            Pub p = new Pub();
+            var p = new Pub();
             p.OnChange += () =>
                 {
                     Console.WriteLine("Event raised to method 1");

@@ -1,0 +1,1 @@
+﻿Threads can be aborted. When a thread gets aborted, a ThreadAbortException is thrown in the Thread.

@@ -6,7 +6,7 @@ namespace Example1._52
     {
         static void Main(string[] args)
         {
-            bool b = true;
+            var b = true;
 
             if (b)
             {
@@ -26,7 +26,7 @@ namespace Example1._52
             // Example 1.54
             if (b)
             {
-                int r = 42;
+                var r = 42;
                 b = false;
             }
             // r is not accessible
@@ -50,7 +50,7 @@ namespace Example1._52
             Console.WriteLine();
             Console.WriteLine("Example 1.56");
 
-            bool c = true;
+            var c = true;
             if (b)
             {
                 Console.WriteLine("b is true");
