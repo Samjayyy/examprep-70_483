@@ -9,18 +9,25 @@ namespace Example4._59
         static void Main(string[] args)
         {
             var orders = GetOrders();
-            var avarageNumberOfOrderLines = orders.Average(o => o.OrderLines.Count);
-            Console.WriteLine("Avarage size of order lines: {0}", avarageNumberOfOrderLines);
+            var averageNumberOfOrderLines = orders.Average(o => o.OrderLines.Count);
+            Console.WriteLine("Average size of order lines: {0}", averageNumberOfOrderLines);
+            Console.WriteLine();
 
             // Listing 4.60
             var result = from o in orders
                          from l in o.OrderLines
                          group l by l.Product into p
-                         select new 
-                             {
-                                 Product = p.Key,
-                                 Amount = p.Sum(x => x.Amount)
-                             };
+                         select new
+                         {
+                             Product = p.Key,
+                             Amount = p.Sum(x => x.Amount)
+                         };
+            Console.WriteLine("Sold per product:");
+            foreach (var item in result)
+            {
+                Console.WriteLine("{0} : {1}", item.Product.Description, item.Amount);
+            }
+            Console.WriteLine();
 
             // Listing 4.61
             var products = from o in orders
@@ -30,17 +37,28 @@ namespace Example4._59
             var popularProducts = from p in products
                                   join n in popularProductNames on p.Description equals n
                                   select p;
+            Console.WriteLine("Our popular products:\n{0}", string.Join("\n", popularProducts));
+            Console.WriteLine();
 
             // Listing 4.62
-            int pageIndex = 1;
-            int pageSize = 2;
-            var pagedOrders = orders
-                .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize);
+            Console.WriteLine("First page orders:\n{0}", string.Join("\n", GetOrders(orders, 1, 2)));
+            Console.WriteLine();
+            Console.WriteLine("Second page orders:\n{0}", string.Join("\n", GetOrders(orders, 2, 2)));
+            Console.WriteLine();
 
+
+            Console.WriteLine();
             Console.Write("Press a key to exit ... ");
             Console.ReadKey();
 
+        }
+
+        private static IEnumerable<Order> GetOrders(List<Order> orders, int pageIndex, int pageSize)
+        {
+            var pagedOrders = orders
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize);
+            return pagedOrders;
         }
 
         private static List<Order> GetOrders()
@@ -108,6 +126,11 @@ namespace Example4._59
     {
         public string Description { get; set; }
         public decimal Price { get; set; }
+
+        public override string ToString()
+        {
+            return $"Description={Description},Price={Price}";
+        }
     }
 
     public class OrderLine
@@ -115,10 +138,25 @@ namespace Example4._59
         public int Amount { get; set; }
 
         public Product Product { get; set; }
+
+        public override string ToString()
+        {
+            return $"Amount={Amount},Product=\n\t\t{Product}";
+        }
     }
 
     public class Order
     {
         public List<OrderLine> OrderLines { get; set; }
+
+        public override string ToString()
+        {
+            string result = "Order:\n";
+            foreach (var order in OrderLines)
+            {
+                result += "\t" + order + "\n";
+            }
+            return result;
+        }
     }
 }

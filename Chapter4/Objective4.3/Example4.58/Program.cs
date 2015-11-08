@@ -15,6 +15,13 @@ namespace Example4._58
                          select d1 * d2;
             Console.WriteLine(string.Join(", ", result));
 
+            //result     = from d1 in data1
+            //             from d2 in data2
+            //             let d = d1 * d2
+            //             orderby d
+            //             select d;
+            //Console.WriteLine(string.Join(", ", result));
+
             Console.Write("Press a key to exit ... ");
             Console.ReadKey();
         }

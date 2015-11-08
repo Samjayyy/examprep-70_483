@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objective 4.1 - Perform IO operations", "Objective 4.1 - Perform IO operations", "{6CCEB987-0238-49CC-891E-1182F44BCB85}"
 EndProject
@@ -148,6 +148,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.88", "Objective4.5\Example4.88\Example4.88.csproj", "{8FADF1BE-B723-4AF2-8CFB-A58657286B4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.90", "Objective4.5\Example4.90\Example4.90.csproj", "{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.50", "Example4.48\Example4.50.csproj", "{144F9C98-E609-4910-8FC2-80E5DE6B911A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -399,6 +401,10 @@ Global
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -469,5 +475,6 @@ Global
 		{5918E147-E878-4C85-8B9A-FE3B094A4745} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
 		{8FADF1BE-B723-4AF2-8CFB-A58657286B4E} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A} = {1833094A-36EE-4737-862D-BE899713EA52}
 	EndGlobalSection
 EndGlobal
