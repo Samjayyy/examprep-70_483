@@ -7,9 +7,9 @@ namespace Example4._85
     {
         static void Main(string[] args)
         {
-            Person p1 = new Person { Id = 1, Name = "Name1" };
-            Person p2 = new Person { Id = 2, Name = "Name2" };
-            Person p3 = new Person { Id = 3, Name = "Name3" };
+            Person p1 = new Person { Id = 1, Name = "Segers" };
+            Person p2 = new Person { Id = 2, Name = "Sam" };
+            Person p3 = new Person { Id = 3, Name = "Samjay" };
 
             var dict = new Dictionary<int, Person>();
             dict.Add(p1.Id, p1);
@@ -18,7 +18,7 @@ namespace Example4._85
 
             foreach (KeyValuePair<int, Person> v in dict)
             {
-                Console.WriteLine("{0}: {1}",v.Key, v.Value.Name);
+                Console.WriteLine("{0}: {1}", v.Key, v.Value.Name);
             }
 
             dict[0] = new Person { Id = 4, Name = "Name4" };

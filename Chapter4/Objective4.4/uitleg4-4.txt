@@ -1,0 +1,82 @@
+4.4 Serialization & Deserialization
+
+- Using serialization and deserialization
+	* Serialization : object in memory -> stream of bytes or text
+	* enkel data geserialiseerd, geen methodes
+	* optimalisatie kan zijn om DTO (Data Transfer Object) te maken, die enkel nodige data bevat
+	
+- XmlSerializer
+	* gemaakt voor SOAP (Simple Object Access Protocol)
+	* XmlSerializer, loosely coupled to objects
+		- nieuwe properties toevoegen -> worden niet opgemerkt
+	* niet de beste performantie
+	* werkt niet met private velden
+	* [Serializable] attribuut toevoegen aan klasse
+		==> Example 4.70 : Serializing an object with the XmlSerializer
+			- [Serializable] op Person klasse
+			- Extra vb met private property, of readonly property => wordt niet meegenomen in serialisatie
+	* attributen
+		- XmlIgnore
+		- XmlAttribute
+		- XmlElement
+		- XMLArray
+		- XMLArrayItem
+			==> Example 4.71 : XML Attributes + derived complex class
+				- Bepaalde velden andere benaming gegeven 
+				(niets is effectied nodig, maar dan noemt property zelfde als de variable naam)
+				- Order gebruiken ipv VIPOrder gaat
+				- VIPOrder gebruiken als enkel Order aangegeven geeft RuntimeException
+				- Dirty property niet in XML resultaat, dus ook niet in gedeserializeerd object
+
+- Binary Serialization
+	* geen readable overheid -> kleinere objecten
+	* mogelijk om binaire data te serialiseren (bv. afbeelding)
+	* Binary Serializer
+	* serialiseert naar een Stream
+	* private fields worden WEL geserialiseerd (by default)
+	* XMLSerializer niet strikt, Binary Serializer wel
+		- Niet gevonden veld (bij deserializen), geen exception bij XML, wel bij binary
+		- OptionalField attribuut dient hiervoor
+			field niet aanwezig in oudere versie, wel in nieuwere, best OptionalField maken
+	* Bij deserialisatie, constructor wordt NIET opgeroepen!
+		==> Example 4.73(-74) : Binary Serialization
+			- ipv XMLIgnore, NonSerialized
+			- private properties default wel geserialiseerd
+			
+		==> Example 4.75 : Influencing serialization and deserialization
+			- [OnDeserialized] : voor serializatie
+			- [OnSerialized()] : na serializatie
+			- [OnDeserializing()] : voor deserializatie
+			- [OnDeserialized] : na deserializatie
+			
+	* mogelijks private data exposen
+		- implementeer ISerializable, meer controle
+		- bv data geencrypteerd serialiseren (in GetObjectData)
+		==> Example 4.76 : Implementing ISerializable (Bv. voor sensitive data te verbergen)
+			- GetObjectData : gecalled wanneer object geserialiseerd wordt	
+				* waarden als key/value pairs toevoegen aan SerializationInfo
+				* SecurityPermission om aan te geven dat deze functie het object mag serialiseren
+			- protected constructor(SerializationInfo, StreamingContext)
+				* gecalled bij deserializeren
+				* object terug initieren
+				* mogelijk security checks toevoegen om tampering met geserialiseerd object op te merken
+				
+- Data Contract
+	* Voor WCF
+	* DataContractSerializer
+	* [DataContract] ipv [Serializable]
+	* Zonder [DataContract] en [DataMember] attributen, alle public properties geserialiseerd
+	* Met [DataContract] verplicht [DataMembers] aan te duiden, anders niets
+	* On... attributen nog altijd mogelijk
+	* Wel minder vrijheid ivm XMLAttribute ipv XMLElement
+	* DataMember(Name="naam") -> mogelijk voor eigen naam te geven aan xml element
+		==> Example 4-77 : Using DataContract 
+			- IsDirty , geen [DataMember], dus wordt geignored
+			- Zonder [DataContract] attribuut, alle public geserialiseerd
+			- Met DataContract, maar zonder Members, geen inhoud
+ 
+ - JSON met DataContractSerializer
+	* DataContractJsonSerializer
+	* Minder overhead dan XML
+		==> Example 4.79 : JSON 
+			- Voor de rest gelijk aan voorgaande, nu alleen JSON ipv XML

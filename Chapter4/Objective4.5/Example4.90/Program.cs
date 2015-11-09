@@ -8,7 +8,7 @@ namespace Example4._90
     {
         static void Main(string[] args)
         {
-            PeopleCollection pc = new PeopleCollection() { new Person() { Age = 22, FirstName = "Janne", LastName = "Doe" } };
+            PeopleCollection pc = new PeopleCollection() { new Person() { Age = 22, FirstName = "Jane", LastName = "Doe" } };
             pc.Add(new Person() { Age = 21, LastName = "Doe", FirstName = "John" });
 
             Console.WriteLine("Count: {0}, Contents: {1}", pc.Count, pc.ToString());

@@ -56,5 +56,10 @@ namespace Example4._73
 
         [NonSerialized]
         private bool IsDirty = false;
+
+        public Person()
+        {
+            ;// Binary Serializer does not call constructor when deserializing
+        }
     }
 }

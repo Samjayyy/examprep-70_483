@@ -42,5 +42,18 @@ namespace Example4._70
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
+
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        return FirstName + " " + LastName;
+        //    }
+        //    set
+        //    {
+        //        FirstName = value.Substring(0, value.IndexOf(' ') + 1);
+        //        LastName = value.Substring(value.IndexOf(' '));
+        //    }
+        //}
     }
 }

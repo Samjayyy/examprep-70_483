@@ -40,6 +40,7 @@ namespace Example4._71
             {
                 ID = 4,
                 Description = "Order for John Doe. Use the nice giftwrap",
+                IsDirty = true, // will be false when deserializing (ignored XML property)
                 OrderLines = new List<OrderLine>
                 {
                     new OrderLine { ID = 5, Amount = 1, Product = p1 },
@@ -71,6 +72,11 @@ namespace Example4._71
         [XmlArray("Lines")]
         [XmlArrayItem("OrderLine")]
         public List<OrderLine> OrderLines { get; set; }
+
+        public Order()
+        {
+            ;// When deserializing, constructor is called
+        }
     }
 
     [Serializable]

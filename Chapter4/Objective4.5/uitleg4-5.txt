@@ -1,0 +1,90 @@
+4.5 Collections
+
+- Using Arrays
+	* fixed number of objects
+	* same type
+	* type[] arrayName
+	* bij declaratie verplicht lengte meegeven
+	* Length property
+	* reference types, inherits from Array class
+	* implementeerd IEnumerable => foreach mogelijk
+		==> Example 4.80 : using an array
+			- ineens initializeren ook mogelijk
+	
+	* two(multi)-dimensional array : string[,]
+		- aantal rijen en kolommen meegeven
+		- rijen en kolommen moeten niet gelijk zijn
+		==> Example 4.81 : two-dimensional array
+			- 3 dimensies mogelijk, gewoon extra komma
+			
+	* jagged array: array waarvan elementen ook arrays zijn
+		- array in een array
+		- array = reference type, dus values van jagged array default null
+		==> Example 4.82 : Jagged Array
+			- array van arrays
+			- makkelijks met object initialization syntax
+			- aantal rijen is fixed, inhoud is nieuwe array, deze kan dus in grootte verschillen (2de dimensie)
+			
+	* grootste nadeel van arrays : grootte moet op voorhand bekend zijn
+	
+- Using List
+	* handige methodes (add, remove, byIndex, search, sort)
+	* Altijd genoeg plaats, grootte staat niet vast
+	* store reference types, kan dus ook null hebben
+	* kan dubbels opslaan
+	* IEnumerable -> foreach
+		==> Example 4.84 : Using List<T>
+			- Count
+			- Zoeken op index [x]
+			- Remove
+			- Add
+			- Contains
+	
+- Using Dictionary
+	* Dictionary<TKey,TValue>
+	* Key/Value map
+	* geen dubbele keys toegelaten (uiteraard wel dubbele values)
+	* key kan niet null zijn, value wel
+	* geimplementeerd als een hash table
+		- lookup O(1)
+	* KeyValuePair<TKey,TValue> structuur
+		==> Example 4.85 : using dictionary
+			- unieke key aantonen (bv extra id 1 adden) geeft runtime error
+			- overschrijven van value gaat wel
+			- loopen over values alleen ook mogelijk dict.Values (ook over keys)
+			- TryGetValue, probeert value voor bepaalde key te vragen, met out parameter
+
+- Using Sets
+	* HashSet, achterliggend ook hash table
+	* geen dubbels mogelijk
+	* geen bepaalde volgorde
+	* handige functies rond verzamelingen (wiskundig) (zie p 322)
+	* proberen item dat er al in zit nog eens in te steken wordt genegeerd
+		==> Example 4.87 : using HashSet
+		
+- Using queues and stacks
+	* Queue: First-in, First-out (FIFO)
+		- tijdelijke storage, bij dequeuen wordt item ook van queue gehaald
+		- enqueue : nieuw item toevoegen
+		- dequeue : oudste item af halen
+		- peek : oudste item bekijken, maar niet van queue halen
+			==> Example 4.88 : using Queue en stack
+				- Enqueue
+				- Dequeue
+				- FIFO
+	* Stack : Last-in, First-out (LIFO)
+		- bv. undo systeem
+		- tijdelijke storage, bij pop wordt item van stack gehaald
+		- push : nieuw item op stack pushen
+		- pop : laatste/nieuwste item van stack poppen
+		- peek : laatste/nieuwste item bekijken, maar op stack laten zitten
+			==> Example 4.88 : using queue en stack
+				- push
+				- pop
+				- LIFO (of FILO)
+				
+- Custom Collection
+	==> Example 4.90: inherit from List<T>
+		- extra methodes toevoegen naar believen
+		- removeByAge: belangrijk, loopen van achter naar voren, zonder for each! Anders werkt delete niet
+		- niks speciaal
