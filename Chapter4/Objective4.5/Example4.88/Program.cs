@@ -19,6 +19,14 @@ namespace Example4._88
             {
                 Console.Write(s + " ");
             }
+            Console.WriteLine("\nmyQueue length: {0}", myQueue.Count);
+
+            Console.WriteLine("\nUsing Dequeue");
+            while (myQueue.Count > 0)
+            {
+                Console.Write(myQueue.Dequeue() + " ");
+            }
+            Console.WriteLine("\nmyQueue length: {0}", myQueue.Count);
 
             Console.WriteLine();
 
@@ -34,6 +42,14 @@ namespace Example4._88
             {
                 Console.Write(s + " ");
             }
+            Console.WriteLine("\nmyStack length: {0}", myStack.Count);
+
+            Console.WriteLine("\nUsing Pop");
+            while (myStack.Count > 0)
+            {
+                Console.Write(myStack.Pop() + " ");
+            }
+            Console.WriteLine("\nmyStack length: {0}", myStack.Count);
 
             Console.WriteLine();
             Console.Write("Press a key to exit ... ");

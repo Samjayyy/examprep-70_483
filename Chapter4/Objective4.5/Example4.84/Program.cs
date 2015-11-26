@@ -19,6 +19,11 @@ namespace Example4._84
             Console.WriteLine("At 0: {0}", listOfStrings[0]);
 
             listOfStrings.Add("F");
+            foreach (string item in listOfStrings)
+            {
+                Console.Write(item);
+            }
+            Console.WriteLine();
             Console.WriteLine("Count: {0}", listOfStrings.Count);
 
             bool hasC = listOfStrings.Contains("C");

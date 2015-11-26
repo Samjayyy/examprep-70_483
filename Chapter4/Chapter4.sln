@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objective 4.1 - Perform IO operations", "Objective 4.1 - Perform IO operations", "{6CCEB987-0238-49CC-891E-1182F44BCB85}"
 EndProject
@@ -92,6 +92,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.46", "Objective4.2\Example4.46\Example4.46.csproj", "{33A5EFD2-59D1-4BEE-8A86-46D2F40DC8EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objective 4.3 - Query and manipulate data", "Objective 4.3 - Query and manipulate data", "{1833094A-36EE-4737-862D-BE899713EA52}"
+	ProjectSection(SolutionItems) = preProject
+		Objective4.3\uitleg4-3.txt = Objective4.3\uitleg4-3.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.51", "Objective4.3\Example4.51\Example4.51.csproj", "{E2A15282-B9F3-446A-B3A2-3F7ED429056A}"
 EndProject
@@ -116,6 +119,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.68", "Objective4.3\Example4.68\Example4.68.csproj", "{EE78CDFA-616E-4B09-B657-D019753B26FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objective 4.4 - Serialize and deserialize data", "Objective 4.4 - Serialize and deserialize data", "{1253821F-7743-438F-B0A9-131E3806AEDD}"
+	ProjectSection(SolutionItems) = preProject
+		Objective4.4\uitleg4-4.txt = Objective4.4\uitleg4-4.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.70", "Objective4.4\Example4.70\Example4.70.csproj", "{CA6CF5D4-12F0-4D53-96E8-9D1EE6C8CB87}"
 EndProject
@@ -132,6 +138,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.79", "Objective4.4\Example4.79\Example4.79.csproj", "{7BE86F28-2E88-485F-9CA7-139F0DF534C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Objective 4.5 - Store data in and retrieve data from collections", "Objective 4.5 - Store data in and retrieve data from collections", "{3280A79B-E260-4FA7-B3F7-4408C9EEA836}"
+	ProjectSection(SolutionItems) = preProject
+		Objective4.5\uitleg4-5.txt = Objective4.5\uitleg4-5.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.80", "Objective4.5\Example4.80\Example4.80.csproj", "{CA07E549-5CAF-4400-BACD-479ED6958D96}"
 EndProject
@@ -148,6 +157,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.88", "Objective4.5\Example4.88\Example4.88.csproj", "{8FADF1BE-B723-4AF2-8CFB-A58657286B4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.90", "Objective4.5\Example4.90\Example4.90.csproj", "{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example4.50", "Objective4.3\Example4.50\Example4.50.csproj", "{144F9C98-E609-4910-8FC2-80E5DE6B911A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -399,6 +410,10 @@ Global
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -469,5 +484,6 @@ Global
 		{5918E147-E878-4C85-8B9A-FE3B094A4745} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
 		{8FADF1BE-B723-4AF2-8CFB-A58657286B4E} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
 		{14592E9F-75DD-4BE5-A7D6-C3233FF767CA} = {3280A79B-E260-4FA7-B3F7-4408C9EEA836}
+		{144F9C98-E609-4910-8FC2-80E5DE6B911A} = {1833094A-36EE-4737-862D-BE899713EA52}
 	EndGlobalSection
 EndGlobal

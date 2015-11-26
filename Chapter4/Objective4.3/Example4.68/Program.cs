@@ -32,9 +32,9 @@ namespace Example4._68
 
             // Using XML in a procedural way
             Console.WriteLine("Using XML in a procedural way");
-            foreach (XElement p in root.Descendants("Person"))
+            foreach (XElement p in root.Descendants("person"))
             {
-                string name = (string)p.Attribute("firstname") + (string)p.Attribute("lastname ");
+                string name = (string)p.Attribute("firstname") + (string)p.Attribute("lastname");
                 p.Add(new XAttribute("IsMale", name.Contains("John")));
                 XElement contactsDetails = p.Element("contactdetails");
                 if (!contactsDetails.Descendants("phonenumber").Any())
@@ -47,14 +47,15 @@ namespace Example4._68
             Console.WriteLine();
 
             // Transforming XML with functional creation
+            root = XElement.Parse(xml);
             Console.WriteLine("Transforming XML with functional creation");
             XElement newTree = new XElement("people",
                 from p in root.Descendants("person")
                 let name = (string)p.Attribute("firstname") + (string)p.Attribute("lastname")
-                let ContactDetails = p.Element("contactdetails")
+                let contactDetails = p.Element("contactdetails")
                 select new XElement("person", new XAttribute("IsMale", name.Contains("John")),
                     p.Attributes(),
-                    new XElement("contactdetails", ContactDetails.Element("emailaddress"), ContactDetails.Element("phonenumber") ?? new XElement("phonenumber", "112233455"))));
+                    new XElement("contactdetails", contactDetails.Element("emailaddress"), contactDetails.Element("phonenumber") ?? new XElement("phonenumber", "112233455"))));
 
             Console.WriteLine(newTree.ToString());
 

@@ -8,7 +8,7 @@ namespace Example4._90
     {
         static void Main(string[] args)
         {
-            PeopleCollection pc = new PeopleCollection() { new Person() { Age = 22, FirstName = "Janne", LastName = "Doe" } };
+            PeopleCollection pc = new PeopleCollection() { new Person() { Age = 22, FirstName = "Jane", LastName = "Doe" } };
             pc.Add(new Person() { Age = 21, LastName = "Doe", FirstName = "John" });
 
             Console.WriteLine("Count: {0}, Contents: {1}", pc.Count, pc.ToString());
@@ -34,13 +34,15 @@ namespace Example4._90
     {
         public void RemoveByAge(int age)
         {
-            for (int index = this.Count - 1; index >= 0; index--)
-            {
-                if (this[index].Age == age)
-                {
-                    this.RemoveAt(index);
-                }
-            }
+            this.RemoveAll(x => x.Age == age);
+
+            //for (int index = this.Count - 1; index >= 0; index--)
+            //{
+            //    if (this[index].Age == age)
+            //    {
+            //        this.RemoveAt(index);
+            //    }
+            //}
         }
 
         public override string ToString()

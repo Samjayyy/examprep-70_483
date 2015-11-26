@@ -1,0 +1,81 @@
+4.3: LINQ
+
+- Implicitly type variables -> C#3
+	* alleen voor locale variables
+	* var 
+	* nog altijd strongly typed!
+	* kan leesbaarheid verhogen (bv bij lang type List<string, IEnumerable<Tuple<)
+
+- Object initialization syntax
+	* object inline initialiseren
+	
+		==> Example 4.50: meerder manieren om te initialiseren, zelfs in list mogelijk
+
+- Lambda expressions
+		==> Example 4.51: anonymous method vc lambda expr
+	* anonymous methods met delegate keyword
+	* lambda, veel korte te schrijven
+	* lambda => 'becomes', 'wordt'
+	
+- Extension methods
+	* gedefinieerd in een static class
+	* gebruik 'this' keyword om aan te geven dat het extension method is
+	* LINQ volledig gebaseerd op extension methods
+		==> Example 4.52 : extension method op int
+		
+- Anonymous types
+	* type gevormd bij compile time zonder formele class definitie
+	* var keyword + new  zonder type
+		==> Example 4.53 : anonymous type
+	* bij LINQ gebruikt als je paar properties selecteerd en daarmee een type vormt
+	
+USING LINQ
+	*stappen:
+		- obtain data
+		- create query
+		- execute query
+	* query syntax : leesbaarder, niet alles mogelijk in query syntax
+	* method syntax : compiler vertaald query syntax in method syntax
+		==> Example 4.54 : query syntax +  method syntax
+			- method syntax Where is extension method
+			
+- Standard LINQ query operators
+	* LINQ to XML, LINQ to Entities or LINQ to Objects
+	* All, Any, Average, Cast, Count, Distinct, GroupBy,
+	Join, Max, Min, OrderBy, OrderByDescending, Select,
+	SelectMay, Skip, SkipWhile, Sum, Take, TakeWhile, ThenBy,
+	ThenByDescending, Where
+		==> Example 4.55(-57): zonder where, met where, met sortering
+		==> Example 4.58 : data uit meerdere collecties combineren
+			- met let keyword kan je variabele maken, bv om op te sorteren...
+		==> Example 4.59 : LINQ met custom klasses
+			- Average niet aanwezig als query syntax, wel method syntax
+			- 4.60 : hoeveel items per product verkocht
+			- 4.61 : alle producten in orders die tot de populaire producten behoren
+			- 4.62 : Skip en Take (slaag er x over, en neem er y )
+			
+- How does LINQ work
+	* Eigen WHERE maken
+		==> Example 4.63 :  achterliggende werking Where
+			- defered execution door yield return
+			- pas uitgevoerd wanneer eerste keer geitereerd wordt
+	* LINQ query is not executed until iterated
+	* Voor LINQ to SQL : query wordt vertaald naar SQL, wordt pas uitgevoerd bij iteratie over resultaat
+		- meerdere keren itereren => meerdere SQL query hits
+		=> Best resultaat van query op te slaan in lokale var
+		
+- LINQ to XML
+	* create, edit and parse XML files
+		Parse
+		==> Example 4.65 : LINQ to XML	
+			- XDocument klasse om xml in te laden
+			- XNode objecten (nodes in xml) XDocument.Nodes, XDocument.Descendants (met filter)
+			- Descendants method
+			- Attribute method (geeft XAttribute terug)
+	* Create XML
+		==> Example 4.67 : create XML
+	* Update XML
+		==> Example 4.68 : update XML
+			-> Overal IsMale toevoegen en telnr als hij er nog geen heeft
+			- procedural : 
+			- functional : meer CPU, wel leesbaarder en makkelijker te onderhouden (met LINQ query)
