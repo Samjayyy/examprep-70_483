@@ -34,13 +34,15 @@ namespace Example4._90
     {
         public void RemoveByAge(int age)
         {
-            for (int index = this.Count - 1; index >= 0; index--)
-            {
-                if (this[index].Age == age)
-                {
-                    this.RemoveAt(index);
-                }
-            }
+            this.RemoveAll(x => x.Age == age);
+
+            //for (int index = this.Count - 1; index >= 0; index--)
+            //{
+            //    if (this[index].Age == age)
+            //    {
+            //        this.RemoveAt(index);
+            //    }
+            //}
         }
 
         public override string ToString()
